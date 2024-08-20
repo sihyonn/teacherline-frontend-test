@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import theme from "./theme";
+// import theme from "./theme";
 
 const globals = css`
   *,
@@ -163,26 +163,6 @@ const globals = css`
   }
   body {
     font-family: "Nanum", "Pretendard";
-  }
-
-  .my-message-notice-wrapper {
-    .my-message-notice-content {
-      color: ${theme.colors.neutral["white"]};
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 150%; /* 24px */
-      background: rgba(0, 0, 0, 0.7) !important;
-      direction: ltr;
-      .my-message-custom-content {
-        display: flex;
-
-        gap: 8px;
-        > span {
-          direction: ltr;
-        }
-      }
-    }
   }
 `;
 
