@@ -1,5 +1,4 @@
 import MainProvider from "@/utils/provider/main";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
