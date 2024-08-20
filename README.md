@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# teacherline-frontend-test 가이드
 
-## Getting Started
+이 문서는 티처라인 프론트엔드 코딩테스트의 가이드 문서입니다.
 
-First, run the development server:
+테스트를 응시하기에 앞서 본 레포지토리를 fork해주세요 <br />테스트 완료 후 사전에 전달받은 Branch에 Pull Requests를 보내주시면 제출 완료 처리됩니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 1. 디자인 예시
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://www.figma.com/design/f4PDpX4GtNfk89D9yRB4Yd/to-do?node-id=0-1&m=dev <br/>위의 링크로 접속하여 확인이 가능합니다. <br/>(혹, 보이지 않을시 연락 부탁드립니다.)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 2. 라이브러리 사용
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+최초 세팅되어 있는 라이브러리를 제외한 추가 설치가 가능합니다. <br/>추가된 라이브러리 명세와 추가한 이유, 해당 라이브러리가 적용된 부분을 간략하게 readme 파일에 적어주세요!
 
-## Learn More
+## 3. 폴더 구조
 
-To learn more about Next.js, take a look at the following resources:
+폴더구조는 next.js의 app Directory 기본 폴더구조를 준수해주세요 <br/>components와 hooks등의 폴더는 추가 생성이 가능합니다. <br/>readme 파일에 간략한 폴더구조 설명을 부탁드려요!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4. 요구사항
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **시맨틱 마크업**을 준수하여 퍼블리싱 작업을 해주세요
+2. 리스트 데이터는 **브라우저 스토리지**를 활용하여주세요
 
-## Deploy on Vercel
+## 5. 선택 사항 (꼭! 하지 않아도 됩니다 시간적 여유가 생기면 해주세요!)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 체크 박스의 css를 커스텀 해주세요
+2. 전체, 완료, 미완료를 구분하여 볼수 있는 필터를 만들어주세요
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 6. README파일을 작성해주세요
+
+작업한 내용물에 대한 README파일을 작성해주세요
+
+---
+
+본 테스트 자료는 (주)티처라인의 자산으로 외부 유출 및 공유를 금지합니다.
