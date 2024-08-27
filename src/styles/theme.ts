@@ -15,7 +15,7 @@ const theme = Object.freeze({
     },
 
     body: {
-      fontSize: "1.6rem",
+      fontSize: "1.2rem",
       fontWeight: 400,
     },
 
