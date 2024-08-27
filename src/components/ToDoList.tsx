@@ -5,15 +5,22 @@ import useTodo from "@/src/hooks/useTodo";
 
 export default function ToDoList() {
   const { todoList, addTodo, toggleTodo } = useTodo();
+  const isTodoEmpty = todoList.length === 0;
 
   return (
     <>
       <S.Title>To Do List</S.Title>
       <ToDoInputForm addTodo={addTodo} />
       <S.ToDoItemList>
-        {todoList.map(todo => (
-          <ToDoItem key={todo.id} todo={todo} updateTodo={toggleTodo} />
-        ))}
+        {isTodoEmpty ? (
+          <S.EmptyList>할일을 생성해보세요✨</S.EmptyList>
+        ) : (
+          <>
+            {todoList.map(todo => (
+              <ToDoItem key={todo.id} todo={todo} updateTodo={toggleTodo} />
+            ))}
+          </>
+        )}
       </S.ToDoItemList>
     </>
   );
@@ -21,7 +28,14 @@ export default function ToDoList() {
 
 const S = {
   Title: styled.h2`
+    margin-bottom: 2rem;
     ${({ theme }) => theme.typography.title};
+  `,
+
+  EmptyList: styled.div`
+    padding-top: 50%;
+    font-weight: 500;
+    text-align: center;
   `,
 
   ToDoItemList: styled.ul`
@@ -30,7 +44,8 @@ const S = {
     gap: 1.6rem;
 
     width: 100%;
-    padding: 0 1.2rem;
+    padding: 1.5rem 1.2rem 0;
     margin-top: 1.5rem;
+    border-top: 2px solid #dddddd;
   `,
 };
