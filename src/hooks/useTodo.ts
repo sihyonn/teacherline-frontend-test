@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { Todo } from "@/src/types/todo";
+import { FilterOption, Todo } from "@/src/types/todo";
 import {
   getStoredTodoFromLocalStorage,
   saveTodoToLocalStorage,
 } from "@/src/utils/storage";
+import { FILTER_OPTION } from "@/src/constants/FILTER_OPTION";
 
 export default function useTodo() {
   const [todoList, setTodoList] = useState<Todo[]>(
     getStoredTodoFromLocalStorage
   );
+  const [filter, setFilter] = useState<FilterOption>(FILTER_OPTION.ALL);
 
   useEffect(() => {
     saveTodoToLocalStorage(todoList);
@@ -31,5 +33,12 @@ export default function useTodo() {
     );
   };
 
-  return { todoList, addTodo, toggleTodo };
+  const filteredTodoList =
+    filter === FILTER_OPTION.COMPLETE
+      ? todoList.filter(todo => todo.isDone)
+      : filter === FILTER_OPTION.INCOMPLETE
+      ? todoList.filter(todo => !todo.isDone)
+      : todoList;
+
+  return { todoList: filteredTodoList, addTodo, toggleTodo, setFilter };
 }

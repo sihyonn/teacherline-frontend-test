@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import ToDoInputForm from "@/src/components/ToDoInputForm";
 import ToDoItem from "@/src/components/ToDoItem";
+import SelectBox from "@/src/components/SelectBox";
 import useTodo from "@/src/hooks/useTodo";
 
 export default function ToDoList() {
-  const { todoList, addTodo, toggleTodo } = useTodo();
+  const { todoList, addTodo, toggleTodo, setFilter } = useTodo();
   const isTodoEmpty = todoList.length === 0;
 
   return (
@@ -22,6 +23,7 @@ export default function ToDoList() {
           </>
         )}
       </S.ToDoItemList>
+      <SelectBox setFilter={setFilter} />
     </>
   );
 }
@@ -44,6 +46,8 @@ const S = {
     gap: 1.6rem;
 
     width: 100%;
+    height: 50rem;
+    overflow: scroll;
     padding: 1.5rem 1.2rem 0;
     margin-top: 1.5rem;
     border-top: 2px solid #dddddd;
