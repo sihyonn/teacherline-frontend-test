@@ -1,26 +1,21 @@
-import { useState } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { Todo } from "@/src/types/todo";
+import useInput from "@/src/hooks/common/useInput";
 
 interface TodoInputProps {
-  addTodo: (todo: Todo) => void;
+  addTodo: (text: string) => void;
 }
 
 export default function ToDoInputForm({ addTodo }: TodoInputProps) {
-  const [inputText, setInputText] = useState<string>("");
-  const isInputValid = inputText.trim().length > 1;
+  const { inputText, isInputValid, resetValue, handleChangeInputText } =
+    useInput("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!isInputValid) return;
+
     e.preventDefault();
-
-    const newTodo = {
-      id: `${Date.now()}`,
-      text: inputText,
-    };
-
-    addTodo(newTodo);
-    setInputText("");
+    addTodo(inputText);
+    resetValue();
   };
 
   return (
@@ -29,7 +24,7 @@ export default function ToDoInputForm({ addTodo }: TodoInputProps) {
         type="text"
         value={inputText}
         placeholder="some words"
-        onChange={e => setInputText(e.target.value)}
+        onChange={handleChangeInputText}
       />
       <S.PlusButton type="submit" disabled={!isInputValid}>
         <Image
