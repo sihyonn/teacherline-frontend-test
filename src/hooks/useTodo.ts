@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Todo } from "@/src/types/todo";
+import {
+  getStoredTodoFromLocalStorage,
+  saveTodoToLocalStorage,
+} from "@/src/utils/storage";
 
 export default function useTodo() {
-  const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [todoList, setTodoList] = useState<Todo[]>(
+    getStoredTodoFromLocalStorage
+  );
+
+  useEffect(() => {
+    saveTodoToLocalStorage(todoList);
+  }, [todoList]);
 
   const addTodo = (inputText: string) => {
     const newTodo = {
