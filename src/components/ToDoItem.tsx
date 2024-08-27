@@ -49,6 +49,7 @@ const S = {
     height: 2.4rem;
     border: ${({ theme }) => theme.color.border};
     border-radius: 0.5rem;
+    cursor: pointer;
   `,
 
   ToDoText: styled.span`
