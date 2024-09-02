@@ -1,7 +1,7 @@
 "use client";
 
-import { Global, ThemeProvider } from "@emotion/react";
 import { PropsWithChildren } from "react";
+import { Global, ThemeProvider } from "@emotion/react";
 import globals from "../../styles/global";
 import theme from "@/src/styles/theme";
 

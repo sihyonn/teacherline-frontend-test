@@ -1,3 +1,4 @@
+import MainLayout from "@/src/layouts/MainLayout";
 import MainProvider from "@/src/utils/provider/main";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={ubuntu.className}>
-        <MainProvider>{children}</MainProvider>
+        <MainProvider>
+          <MainLayout>{children}</MainLayout>
+        </MainProvider>
       </body>
     </html>
   );
