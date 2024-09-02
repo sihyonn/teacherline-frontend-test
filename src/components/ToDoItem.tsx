@@ -44,7 +44,7 @@ const S = {
   Checkbox: styled.input`
     width: 2.4rem;
     height: 2.4rem;
-    border: ${({ theme }) => theme.color.border};
+    border: ${({ theme }) => theme.border};
     border-radius: 0.5rem;
     cursor: pointer;
   `,
