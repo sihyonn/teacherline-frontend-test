@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import useCheckbox from "@/src/hooks/common/useCheckbox";
+
 import { Todo } from "@/src/types/todo";
 
 interface ToDoItemProps {
@@ -8,10 +8,7 @@ interface ToDoItemProps {
 }
 
 export default function ToDoItem({ todo, updateTodo }: ToDoItemProps) {
-  const { onChangeChecked } = useCheckbox({ defaultValue: todo.isDone });
-
   const handleChangeChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeChecked(e);
     updateTodo(todo.id);
   };
 
