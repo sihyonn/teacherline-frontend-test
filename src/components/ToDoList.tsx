@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
 import ToDoItem from "@/src/components/ToDoItem";
-import SelectBox from "@/src/components/SelectBox";
+
 import useTodo from "@/src/hooks/useTodo";
 import ToDoAddForm from "@/src/components/ToDoAddForm";
+import ToDoFilterDropdown from "@/src/components/ToDoFilterDropDown";
 
 export default function ToDoList() {
   const { todoList, addTodo, toggleTodoCompletion, setFilter } = useTodo();
@@ -28,7 +29,7 @@ export default function ToDoList() {
           </>
         )}
       </S.ToDoItemList>
-      <SelectBox setFilter={setFilter} />
+      <ToDoFilterDropdown setFilter={setFilter} />
     </>
   );
 }

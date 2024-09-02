@@ -6,7 +6,7 @@ interface SelectBoxProps {
   setFilter: (filter: FilterOption) => void;
 }
 
-export default function SelectBox({ setFilter }: SelectBoxProps) {
+export default function ToDoFilterDropdown({ setFilter }: SelectBoxProps) {
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFilter = e.target.value as FilterOption;
     setFilter(selectedFilter);
