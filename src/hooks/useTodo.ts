@@ -25,7 +25,7 @@ export default function useTodo() {
     setTodoList(prevTodos => [...prevTodos, newTodo]);
   };
 
-  const toggleTodo = (id: string) => {
+  const toggleTodoCompletion = (id: string) => {
     setTodoList(prevTodos =>
       prevTodos.map(todo =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
@@ -40,5 +40,10 @@ export default function useTodo() {
       ? todoList.filter(todo => !todo.isDone)
       : todoList;
 
-  return { todoList: filteredTodoList, addTodo, toggleTodo, setFilter };
+  return {
+    todoList: filteredTodoList,
+    addTodo,
+    toggleTodoCompletion,
+    setFilter,
+  };
 }

@@ -6,7 +6,7 @@ import useTodo from "@/src/hooks/useTodo";
 import ToDoAddForm from "@/src/components/ToDoAddForm";
 
 export default function ToDoList() {
-  const { todoList, addTodo, toggleTodo, setFilter } = useTodo();
+  const { todoList, addTodo, toggleTodoCompletion, setFilter } = useTodo();
   const isTodoEmpty = todoList.length === 0;
 
   return (
@@ -19,7 +19,11 @@ export default function ToDoList() {
         ) : (
           <>
             {todoList.map(todo => (
-              <ToDoItem key={todo.id} todo={todo} updateTodo={toggleTodo} />
+              <ToDoItem
+                key={todo.id}
+                todo={todo}
+                toggleCompletion={toggleTodoCompletion}
+              />
             ))}
           </>
         )}

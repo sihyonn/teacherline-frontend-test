@@ -4,12 +4,12 @@ import { Todo } from "@/src/types/todo";
 
 interface ToDoItemProps {
   todo: Todo;
-  updateTodo: (id: string) => void;
+  toggleCompletion: (id: string) => void;
 }
 
-export default function ToDoItem({ todo, updateTodo }: ToDoItemProps) {
+export default function ToDoItem({ todo, toggleCompletion }: ToDoItemProps) {
   const handleChangeChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateTodo(todo.id);
+    toggleCompletion(todo.id);
   };
 
   return (
