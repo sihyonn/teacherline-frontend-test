@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import ToDoInputForm from "@/src/components/ToDoInputForm";
+
 import ToDoItem from "@/src/components/ToDoItem";
 import SelectBox from "@/src/components/SelectBox";
 import useTodo from "@/src/hooks/useTodo";
+import ToDoAddForm from "@/src/components/ToDoAddForm";
 
 export default function ToDoList() {
   const { todoList, addTodo, toggleTodo, setFilter } = useTodo();
@@ -11,7 +12,7 @@ export default function ToDoList() {
   return (
     <>
       <S.Title>To Do List</S.Title>
-      <ToDoInputForm addTodo={addTodo} />
+      <ToDoAddForm addTodo={addTodo} />
       <S.ToDoItemList>
         {isTodoEmpty ? (
           <S.EmptyList>할일을 생성해보세요✨</S.EmptyList>
@@ -47,7 +48,7 @@ const S = {
 
     width: 100%;
     height: 50rem;
-    overflow: scroll;
+    overflow-y: auto;
     padding: 1.5rem 1.2rem 0;
     margin-top: 1.5rem;
     border-top: 2px solid #dddddd;

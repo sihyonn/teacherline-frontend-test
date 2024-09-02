@@ -6,7 +6,7 @@ interface TodoInputProps {
   addTodo: (text: string) => void;
 }
 
-export default function ToDoInputForm({ addTodo }: TodoInputProps) {
+export default function ToDoAddForm({ addTodo }: TodoInputProps) {
   const { inputText, isInputValid, resetValue, handleChangeInputText } =
     useInput("");
 
