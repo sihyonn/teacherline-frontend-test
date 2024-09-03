@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import { Todo } from "@/src/types/todo";
 
 interface ToDoItemProps {

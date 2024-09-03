@@ -1,7 +1,7 @@
-import MainLayout from "@/src/layouts/MainLayout";
-import MainProvider from "@/src/utils/provider/main";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
+import MainLayout from "@/src/layouts/MainLayout";
+import MainProvider from "@/src/utils/provider/main";
 
 const ubuntu = Ubuntu({ weight: ["400"], subsets: ["latin"] });
 

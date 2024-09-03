@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { FilterOption, Todo } from "@/src/types/todo";
+import { FILTER_OPTION } from "@/src/constants/FILTER_OPTION";
 import {
   getStoredTodoFromLocalStorage,
   saveTodoToLocalStorage,
 } from "@/src/utils/storage";
-import { FILTER_OPTION } from "@/src/constants/FILTER_OPTION";
+import { FilterOption, Todo } from "@/src/types/todo";
 
 export default function useTodo() {
   const [todoList, setTodoList] = useState<Todo[]>([]);
