@@ -7,13 +7,18 @@ import {
 import { FILTER_OPTION } from "@/src/constants/FILTER_OPTION";
 
 export default function useTodo() {
-  const [todoList, setTodoList] = useState<Todo[]>(
-    getStoredTodoFromLocalStorage
-  );
+  const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState<FilterOption>(FILTER_OPTION.ALL);
 
   useEffect(() => {
-    saveTodoToLocalStorage(todoList);
+    const storedTodos = getStoredTodoFromLocalStorage();
+    setTodoList(storedTodos);
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (todoList.length > 0) saveTodoToLocalStorage(todoList);
   }, [todoList]);
 
   const addTodo = (inputText: string) => {
@@ -45,5 +50,6 @@ export default function useTodo() {
     addTodo,
     toggleTodoCompletion,
     setFilter,
+    isLoading,
   };
 }
